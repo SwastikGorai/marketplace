@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+
+# Initialize the enviornment variables
+env = environ.Env()
+environ.Env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +31,7 @@ SECRET_KEY = 'django-insecure-g5**l8@n0j-$xyag05$=y211ol4mbs)w01n7a+en&6g%xwnhxw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URLL = '/login/'
 LOGOUT_REDIRECT_URL = '/'
@@ -85,16 +91,26 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-    
+
     'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'URL': os.getenv('DATABASE_URL'),
-    'NAME': os.getenv('PGDATABASE'),
-    'USER': os.getenv('PGUSER'),
-    'PASSWORD': os.getenv('PGPASSWORD'),
-    'HOST': os.getenv('PGHOST'),
-    'PORT': os.getenv('PGPORT'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': env('DATABASE_URL'),
+        'NAME': env('PGDATABASE'),
+        'USER': env('PGUSER'),
+        'PASSWORD': env('PGPASSWORD'),
+        'HOST': env('PGHOST'),
+        'PORT': env('PGPORT'),
     }
+
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'URL': 'postgresql://postgres:w53CfObbCmDYadAuwEVI@containers-us-west-50.railway.app:7191/railway',
+    #     'NAME': 'railway',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'w53CfObbCmDYadAuwEVI',
+    #     'HOST': 'containers-us-west-50.railway.app',
+    #     'PORT': '7191',
+    # }
 }
 
 
