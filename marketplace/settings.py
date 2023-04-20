@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'core',
     'item',
     'dashboard',
-    'conversation'
+    'conversation',
+    'gdstorage',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +153,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = None
