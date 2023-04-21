@@ -33,7 +33,6 @@ To run this project locally, you need to have Python 3 and pip installed on your
 ## Todos
 - Add logout option
 - Add a feature to delete and edit messages
-- Hosting the project
 
 ## Contribution
 
