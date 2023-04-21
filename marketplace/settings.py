@@ -155,3 +155,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = None
+
+
+https://marketplace-production-c6d0.up.railway.app/
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://marketplace-production-c6d0.up.railway.app'
+]
