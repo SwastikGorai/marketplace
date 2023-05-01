@@ -1,0 +1,24 @@
+name: Redeploy app on first day of the month
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 0 1 * *'
+      
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Set up configs
+      run: |
+        git config --global user.name 'SwastikGorai'
+        git config --global user.email 'swastikgorai@gmail.com'
+    - name: Deployed
+      run: |
+        echo "Deployed to railway" > message.txt
+        git add message.txt
+        git commit -m "Deployed service till 21st of the month"
+        git push
